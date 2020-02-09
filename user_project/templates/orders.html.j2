@@ -1,0 +1,22 @@
+{% include 'header.html' %}
+
+<h2>Orders from {{user.name}}</h2>
+    
+{% if orders %}
+<table>
+    <tr>
+        <td>Order</td>
+        <td>Date</td>
+    </tr>
+    {% for order in orders %}
+    <tr>
+        <td>{{order.text}}</td>
+        <td>{{order.date}}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<p>No order found</p>
+{% endif %}
+
+{% include 'footer.html' %}

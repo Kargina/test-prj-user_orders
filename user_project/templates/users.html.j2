@@ -1,0 +1,9 @@
+{% include 'header.html' %}
+
+<h2>Users</h2>
+
+{% for user in users %}
+    <p><a href=/orders/{{ user.id }}> {{ user.name }} </a></p>
+{% endfor %}
+
+{% include 'footer.html' %}
