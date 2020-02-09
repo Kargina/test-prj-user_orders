@@ -1,6 +1,8 @@
 from user_project.app import app
+from user_project.config import DB_PATH
 import argparse
 import logging
+import os
 
 logging.basicConfig()
 log = logging.getLogger()
@@ -18,6 +20,10 @@ else:
 
 
 def main():
+    if not os.path.isfile(DB_PATH):
+        log.error("Database does not exist, please run init_data.py")
+        exit(1)
+
     try:
         app.run(port=args.listen_port)
     except Exception as e:
